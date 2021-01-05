@@ -1,0 +1,86 @@
+<h1>Control de Acceso</h1>
+<hr>
+
+<div class="alert alert-{{estado}}" *ngIf="mgs!=''">
+    <h2>{{mgs}}</h2>
+</div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form (ngSubmit)="guardar( f )" #f="ngForm">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="usuario.nombre"
+                            name="nombre" required>
+                    </div>
+                </div>
+                <div class="col">
+
+                    <div class="form-group">
+                        <label>Apellidos</label>
+                        <input type="text" class="form-control" placeholder="Apellidos" [(ngModel)]="usuario.apellidos"
+                            name="apellidos" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label>Documento</label>
+                    <input type="text" class="form-control" placeholder="Documento" [(ngModel)]="usuario.documento"
+                        name="documento" required>
+                </div>
+
+                <div class="col">
+                    <label>Tipo Documento</label>
+                    <select class="form-control" name="tipoDocumento" [(ngModel)]="usuario.tipoDocumento">
+                        <option value="Cc">Cc</option>
+                        <option value="Ti">Ti</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label>Dirección</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.direccion" name="direccion"
+                        placeholder="Dirección">
+                </div>
+                <div class="col">
+                    <label>Celular</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.celular" name="celular"
+                        placeholder="celular">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label>Estadio</label>
+                    <select class="form-control" name="idEstadio" [(ngModel)]="usuario.idEstadio">
+                        
+                        <option   *ngFor="let item of estadio;"  [ngValue]='item.idEstadio' >{{item.nombre}}</option>
+                        
+                    </select>
+                </div>
+
+                <div class="col">
+                    <label>Estado Acceso</label>
+                    <select class="form-control" name="estadoAcceso" [(ngModel)]="usuario.estadoAcceso">
+                        <option value="Entrada">Entrada</option>
+                        <option value="Salida">Salida</option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group text-center">
+
+                <button type="submit" class="btn btn-outline-success">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+
+            </div>
+        </form>
+    </div>
+</div>

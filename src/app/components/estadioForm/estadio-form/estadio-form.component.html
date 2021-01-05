@@ -1,0 +1,49 @@
+
+<h1>Crear Estadio</h1>
+<hr>
+
+<div class="alert alert-info" *ngIf="mgs!=''">
+    {{mgs}}
+   </div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form (ngSubmit)="guardar( f )" #f="ngForm">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" placeholder="Nombre del estadio" [(ngModel)]="estadio.nombre"
+                    name="nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label>Capacidad Maxima</label>
+                <input type="number" class="form-control" [(ngModel)]="estadio.capacidadMaxima" name="CapacidadMaxima"
+                    placeholder="CapacidadMaxima">
+            </div>
+            <div class="form-group">
+                <label>Capacidad Permitida</label>
+                <input type="number" class="form-control" [(ngModel)]="estadio.capacidadPermitida" name="CapacidadPermitida"
+                    placeholder="capacidadPermitida">
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label>Fecha Inicio</label>
+                    <input type="date" class="form-control" [(ngModel)]="estadio.fechaInicio" name="FechaInicio">
+                </div>
+                <div class="col">
+                    <label>Fecha Final</label>
+                    <input type="date" class="form-control" [(ngModel)]="estadio.fechaFinal" name="FechaFinal">
+                </div>
+            </div>
+            <hr>
+            <div class="form-group text-center">
+                <a class="btn btn-outline-primary mr-2" href="estadio/">Volver</a>
+                <button type="submit" class="btn btn-outline-success">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+
+            </div>
+        </form>
+    </div>
+</div>

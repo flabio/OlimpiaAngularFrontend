@@ -1,0 +1,24 @@
+<hr>
+<table *ngIf="usuario.length > 0" class="table table-striped ">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Documento</th>
+            <th scope="col">Control</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of usuario; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.nombre}}</td>
+            <td>{{item.apellidos}}</td>
+            <td>{{item.documento}}</td>
+            <td>{{item.estadoAcceso}}</td>
+            
+        </tr>
+    </tbody>
+</table>
+

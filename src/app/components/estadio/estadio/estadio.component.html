@@ -1,0 +1,41 @@
+<button type="button" class="btn btn-outline-primary" routerLink="/crear-estadio">
+    Crear Estadio
+</button>
+<div class="alert alert-info mt-2" *ngIf="mgs!=''">
+    {{mgs}}
+   </div>
+<hr>
+<table *ngIf="estadios.length > 0" class="table table-striped ">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Capacidad Maxima</th>
+            <th scope="col">Capacidad Permitida</th>
+            <th scope="col">Fecha Inicio</th>
+            <th scope="col">Fecha Final</th>
+            <th scope="col">opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of estadios; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.nombre}}</td>
+            <td>{{item.capacidadMaxima}}</td>
+            <td>{{item.capacidadPermitida}}</td>
+            <td>{{item.fechaInicio}}</td>
+            <td>{{item.fechaFinal}}</td>
+            <td>
+                <a 
+                class="btn btn-outline-primary mr-2" href="editar-estadio/{{item.idEstadio}}"
+                >
+                ✍ Editar 
+                </a>
+                <button type="button" class="btn btn-outline-danger "  (click)="eliminar( item.idEstadio )">
+                    🗑 Eliminar
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
